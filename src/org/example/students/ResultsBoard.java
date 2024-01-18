@@ -25,6 +25,6 @@ public class ResultsBoard {
     }
 
     TreeSet<Student> getAll() {
-        return resutBoardSet;//new TreeSet<>(resutBoardSet);
+        return new TreeSet<>(resutBoardSet);
     }
 }
