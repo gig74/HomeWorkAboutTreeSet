@@ -9,11 +9,11 @@ public class ResultsBoard {
     public ResultsBoard(){
         super();
     }
-    void addStudent(String name, Float score) {
+    public void addStudent(String name, Float score) {
         Student student = new Student(name,score);
         resutBoardSet.add(student);
     }
-    List<String> top3() {
+    public List<String> top3() {
         List<String> top3Student = new LinkedList<>() ; // Linked... - для сохранения порядка выборки
         for (int i = 0 ; i < 3 ; i++)
         {
@@ -24,7 +24,7 @@ public class ResultsBoard {
         return top3Student;
     }
 
-    TreeSet<Student> getAll() {
+    public TreeSet<Student> getAll() {
         return new TreeSet<>(resutBoardSet);
     }
 }
