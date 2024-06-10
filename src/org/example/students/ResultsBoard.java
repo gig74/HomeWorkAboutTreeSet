@@ -5,26 +5,27 @@ import java.util.List;
 import java.util.TreeSet;
 
 public class ResultsBoard {
-    private TreeSet<Student> resutBoardSet = new TreeSet<>();
+    private TreeSet<Student> resultBoardSet = new TreeSet<>();
     public ResultsBoard(){
         super();
     }
     public void addStudent(String name, Float score) {
         Student student = new Student(name,score);
-        resutBoardSet.add(student);
+        resultBoardSet.add(student);
     }
     public List<String> top3() {
         List<String> top3Student = new LinkedList<>() ; // Linked... - для сохранения порядка выборки
-        for (int i = 0 ; i < 3 ; i++)
-        {
-            Student student = resutBoardSet.pollLast();
-            if (student == null) break; // Оборвать цикл если ничего не выбрано
-            else top3Student.add(student.name());
+        int count = 0;
+        for (Student student: resultBoardSet.descendingSet()) {
+            count++;
+            if ( count > 3 ) break;
+            top3Student.add(student.name());
         }
+
         return top3Student;
     }
 
     public TreeSet<Student> getAll() {
-        return new TreeSet<>(resutBoardSet);
+        return new TreeSet<>(resultBoardSet);
     }
 }
